@@ -1,0 +1,37 @@
+<h1>Endpoints</h1>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Key</th>
+        <th>Description</th>
+        <th>Url</th>
+        <th>Interval</th>
+        <th>Ping</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="endpoint in endpoints">
+        <td><span class="label label-default">{{endpoint.key.group}}</span> {{endpoint.key.name}}</td>
+        <td>{{endpoint.description}}</td>
+        <td><a target="_blank" href="{{endpoint.url}}">{{endpoint.url}}</a></td>
+        <td>{{endpoint.interval}}s</td>
+        <td><boolean-label text="{{endpoint.status}}" status="{{endpoint.status == 'UP'}}"></boolean-label></td>
+        <td><boolean-label status="{{endpoint.paused == false}}" success="RUNNING" failure="PAUSED"></boolean-label></td>
+        <td style="text-align: center;">
+            <div class="btn-group">
+                <button type="button" class="btn btn-xs btn-default" ng-click="start(endpoint.key)">Start</button>
+                <button type="button" class="btn btn-xs btn-default" ng-click="pause(endpoint.key)">Pause</button>
+                <button type="button" class="btn btn-xs btn-danger" ng-click="delete(endpoint.key)">Delete</button>
+            </div>
+        </td>
+    </tr>
+    <tr ng-show="endpoints.length == 0">
+        <td colspan="8" style="text-align: center;">No endpoints</td>
+    </tr>
+    </tbody>
+</table>
+<div class="pull-right">
+    <a href="#/endpoints/add" class="btn btn-primary">Add</a>
+</div>

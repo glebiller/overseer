@@ -1,0 +1,36 @@
+<h1>Add Endpoint</h1>
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="keyName" class="col-lg-2 control-label">Key</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" id="keyName" placeholder="Name" ng-model="endpoint.key.name">
+        </div>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" id="keyGroup" placeholder="Group" ng-model="endpoint.key.group">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description" class="col-lg-2 control-label">Description</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" id="description" placeholder="Description" ng-model="endpoint.description">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="url" class="col-lg-2 control-label">Ping</label>
+        <div class="col-lg-8">
+            <input type="text" class="form-control" id="url" placeholder="http://www.google.com" ng-model="endpoint.url">
+        </div>
+        <div class="col-lg-2">
+            <input type="number" class="form-control" id="interval" placeholder="60s" ng-model="endpoint.interval">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-5 col-lg-1">
+            <button type="submit" class="btn btn-primary" ng-click="save(endpoint)">Save</button>
+        </div>
+        <div class="col-lg-1">
+            <button type="submit" class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </div>
+    </div>
+</form>
+
